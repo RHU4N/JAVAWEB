@@ -1,5 +1,7 @@
 package br.edu.fateccotia.isw029.tasklist.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,6 +16,7 @@ public class Token {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@ManyToOne
+	@JsonIgnore
 	private User user;
 	private String token;
 	private Long expirationTime;

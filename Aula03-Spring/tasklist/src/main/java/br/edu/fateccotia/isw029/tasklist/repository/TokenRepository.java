@@ -7,5 +7,5 @@ import br.edu.fateccotia.isw029.tasklist.model.Token;
 
 @Repository
 public interface TokenRepository extends CrudRepository<Token, Integer> {
-
+	
 }
