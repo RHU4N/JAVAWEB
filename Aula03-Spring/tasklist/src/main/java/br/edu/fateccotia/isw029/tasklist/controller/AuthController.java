@@ -51,11 +51,13 @@ public class AuthController {
 		authService.signout(token);
 		return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
 	}
-	
+
 	@PostMapping("/check")
 	public ResponseEntity<?> check(@RequestHeader String token){
 		Boolean isValid = authService.validate(token);
+
 		return (isValid) ? ResponseEntity.ok().build() : ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+
 	}
 	
 
