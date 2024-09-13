@@ -93,18 +93,8 @@ public class AuthService {
 
 		return null;
 	}
-<<<<<<< HEAD
 	
 
-	public Boolean validate(String token) {
-		Optional<Token> found = tokenRepository.findByToken(token);
-		return found.isPresent() && found.get().getExpirationTime()	> Instant.now().toEpochMilli();	
-	}
-
-	public void signout(String token) {
-		Optional<Token> found = tokenRepository.findByToken(token);
-		found.ifPresent(t->{t.setExpirationTime(Instant.now().toEpochMilli());tokenRepository.save(t);});
-=======
 
 	public void signout(String token) {
 		Optional<Token> found = tokenRepository.findByToken(token);
@@ -119,6 +109,6 @@ public class AuthService {
 	public Boolean validate(String token) {
 		Optional<Token> found = tokenRepository.findByToken(token);
 		return found.isPresent()&&found.get().getExpirationTime()>Instant.now().toEpochMilli();
->>>>>>> 08456fbf4fbd9c06d9c4d389e3601b7e0d3487cb
+
 	}
 }
