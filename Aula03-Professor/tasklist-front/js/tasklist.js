@@ -7,7 +7,7 @@ const authenticate = () => {
 
     $.ajax({
         type: 'POST',
-        url: `${base_url}auth/login`,
+        url: `${base_url}auth/signin`,
         contentType: 'application/json',
         dataType: 'json',
         data: body,

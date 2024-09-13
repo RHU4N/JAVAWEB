@@ -1,0 +1,42 @@
+body {
+    top: 0;
+    left: 0;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.left-area {
+    width: 60%; 
+    height: 100%;
+    position: fixed;
+    background-image: url("/img/login-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.right-area {
+    right: 0;
+    width: 40%;
+    height: 100%;
+    position: fixed;
+}
+
+.login {
+    vertical-align: middle;
+    position: absolute;
+    margin-left: 50px;
+    top: 30%;
+}
+
+.small {
+    font-size: 6pt;
+}
+
+.alert-box-ok {
+    border: 1px darkgreen solid;
+    border-radius: 2px;
+    padding: 5px 5px;
+    background-color: lightgreen;
+    font-size: 6pt;
+}
