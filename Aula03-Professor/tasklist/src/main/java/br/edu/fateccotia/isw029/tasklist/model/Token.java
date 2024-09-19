@@ -10,7 +10,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "tokens")
+@Table(name="tokens")
 public class Token {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,10 +20,12 @@ public class Token {
 	private User user;
 	private String token;
 	private Long expirationTime;
-
+	
 	//Constructors
 	public Token() {
+		// TODO Auto-generated constructor stub
 	}
+	
 	public Token(Integer id, User user, String token, Long expirationTime) {
 		super();
 		this.id = id;
@@ -59,4 +61,5 @@ public class Token {
 	}
 	
 	
+
 }

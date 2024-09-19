@@ -1,4 +1,4 @@
-const base_url = 'http://localhost:8080/'
+const base_url = 'http://localhost:8080'
 
 const authenticate = () => {
     const email = $("#e").val();
@@ -7,7 +7,7 @@ const authenticate = () => {
 
     $.ajax({
         type: 'POST',
-        url: `${base_url}auth/signin`,
+        url: `${base_url}/auth/login`,
         contentType: 'application/json',
         dataType: 'json',
         data: body,
@@ -22,7 +22,7 @@ const authenticate = () => {
 const check = () => {
     $.ajax({
         type: 'POST',
-        url: `${base_url}auth/check`,
+        url: `${base_url}/auth/check`,
         headers: {"token": localStorage.getItem("token")},
         success: (res) => { console.log(res) },
         error: (res) => { 
@@ -35,14 +35,28 @@ const check = () => {
 const signout = () => {
     $.ajax({
         type: 'POST',
-        url: `${base_url}auth/signout`,
+        url: `${base_url}/auth/signout`,
         headers: {"token": localStorage.getItem("token")},
-        success: (res) => { console.log(res) },
-        error: (res) => { console.log(res) }
+        success: (res) => { console.log(res); check(); },
+        error: (res) => { console.log(res); check(); }
     });
 }
 
-document.onreadystatechange = () => {
-    $("#b").click(authenticate);
-    setInterval(check, 10000);
+const signup = (fn) => {
+    const email = $("#sup-e").val();
+    const password = $("#sup-p").val();
+    const body = `{"email": "${email}", "password": "${password}"}`;
+
+    $.ajax({
+        type: 'POST',
+        url: `${base_url}/auth/signup`,
+        contentType: 'application/json',
+        dataType: 'json',
+        data: body,
+        success: (res) => { 
+            console.log(res);
+        }
+    });
 }
+
+export {authenticate, check, signup, signout}

@@ -11,5 +11,5 @@ import br.edu.fateccotia.isw029.tasklist.model.Token;
 public interface TokenRepository extends CrudRepository<Token, Integer> {
 
 	Optional<Token> findByToken(String token);
-
+	
 }

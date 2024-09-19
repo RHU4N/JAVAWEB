@@ -16,7 +16,7 @@ import br.edu.fateccotia.isw029.tasklist.repository.UserRepository;
 
 @Service
 public class AuthService {
-	private Integer TOKEN_TTL = 60;//In seconds
+	private Integer TOKEN_TTL = 300;//In seconds
 	
 	@Autowired //Ele faz uma injeção de dependencias na classe vazia
 	private UserRepository userRepository;
