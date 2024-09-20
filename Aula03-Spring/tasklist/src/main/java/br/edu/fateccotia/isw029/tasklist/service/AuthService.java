@@ -58,22 +58,6 @@ public class AuthService {
 		return sb.toString();
 	}
 	
-//	private Optional<User> login (Optional<User> user) throws Exception {
-//		
-//		Optional<User> users = userrepository.findByEmail(user.get().getEmail());
-//		MessageDigest md = MessageDigest.getInstance("MD5");
-//		
-//		if (user.isPresent()) {
-//			throw new Exception("E-mail alredy exists");
-//			md
-//			
-//		}else {
-//		}
-//		return user;
-//		
-//		
-//	}
- 
 	public Token login(String email, String password) {
 		
 		User user = new User();
@@ -110,5 +94,11 @@ public class AuthService {
 		Optional<Token> found = tokenRepository.findByToken(token);
 		return found.isPresent()&&found.get().getExpirationTime()>Instant.now().toEpochMilli();
 
+	}
+	
+	public User toUser(String token) {
+		Optional<Token> found = tokenRepository.findByToken(token);
+
+			return found.isPresent() ? found.get().getUser() : null;
 	}
 }

@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.edu.fateccotia.isw029.tasklist.enums.TaskStatus;
 import br.edu.fateccotia.isw029.tasklist.model.Task;
 import br.edu.fateccotia.isw029.tasklist.repository.TaskRepository;
 
@@ -29,6 +30,18 @@ public class TaskService {
 		taskRepository.deleteById(id);
 	}
 	
+	public Task update(Integer id, Task task) {
+		Optional<Task> found = taskRepository.findById(task.getId());
+		found.get().setDescription(task.getDescription());
+		found.get().setCategory(task.getCategory());
+		found.get().setStatus(task.getStatus());
+		found.get().setPriority(task.getPriority());
+		
+		return taskRepository.save(found.get());
+		
+		
+	}
+	
 	public Task update(Task task) {
 		Optional<Task> found = taskRepository.findById(task.getId());
 		found.get().setDescription(task.getDescription());
@@ -39,5 +52,22 @@ public class TaskService {
 		return taskRepository.save(found.get());
 		
 		
+	}
+	
+//	public Task checkBoxAlt(Task task) {
+//		Optional<Task> found = taskRepository.findById(task.getId());
+//		TaskStatus vl = task.getStatus();
+//		if(vl == TaskStatus.PENDING) {
+//			found.get().setStatus(TaskStatus.DONE);
+//		}
+//		else if (vl == TaskStatus.DONE) {
+//			found.get().setStatus(TaskStatus.PENDING);
+//		}
+//		
+//		return taskRepository.save(found.get());
+//	}
+
+	public List<Task> findByUserId(Integer id) {
+		return taskRepository.findByUserId(id);
 	}
 }
