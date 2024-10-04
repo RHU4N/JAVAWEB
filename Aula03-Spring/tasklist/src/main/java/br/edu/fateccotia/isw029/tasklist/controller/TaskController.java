@@ -111,4 +111,17 @@ public class TaskController {
 		return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
 	}
 	
+	@GetMapping("/search")
+	public ResponseEntity<List<Task>> search(@RequestParam(name = "q") String query
+			,@RequestHeader(name= "token", required = true) String token){
+		Boolean isValid = authService.validate(token);
+		if(isValid) {
+			User user = authService.toUser(token);
+			List<Task> list = taskService.search(query, user);
+			return ResponseEntity.ok(list);
+		}
+		return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+	}
+	
+	
 }

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import br.edu.fateccotia.isw029.tasklist.enums.TaskStatus;
 import br.edu.fateccotia.isw029.tasklist.model.Task;
+import br.edu.fateccotia.isw029.tasklist.model.User;
 import br.edu.fateccotia.isw029.tasklist.repository.TaskRepository;
 
 @Service
@@ -70,4 +71,10 @@ public class TaskService {
 	public List<Task> findByUserId(Integer id) {
 		return taskRepository.findByUserId(id);
 	}
+
+	public List<Task> search(String query, User user) {
+		return  taskRepository.searchByDescriptionStartingWithIgnoreCaseAndUser(query, user);
+	}
+
+
 }
