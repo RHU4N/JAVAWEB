@@ -1,0 +1,14 @@
+span{
+    padding: 2px;
+    color: white;
+    text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
+    1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+}
+
+.task-done{
+    text-decoration: line-through;
+}
+
+.task-pending{
+    text-decoration: solid;
+}

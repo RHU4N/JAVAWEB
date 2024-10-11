@@ -6,9 +6,25 @@
     <title>Task List | Fatec Cotia</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="module" src="js/main.js"></script>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <h1>Bem-vindo</h1>
     <button id="sout-b">Sign out</button>
-    <div id="categories"></div>
+    <br><br>
+    <div id="categories">
+        <input type="text" id="new-category" placeholder="Nova categoria...">
+        <input type="color" name="" id="catColor">
+        <input type="button" value="+" id="add-category">
+    </div>
+    <div id="tasks">
+        <h2 id="task-category"></h2>
+        <input type="text" id="new-task" placeholder="Nova tarefa...">
+        <select name="" id="taskPri">
+            <option value="LOW">LOW</option>
+            <option value="MEDIUM">MEDIUM</option>
+            <option value="HIGH">HIGH</option>
+        </select>
+        <input type="button" value="+" id="add-task">
+    </div>
 </body>
