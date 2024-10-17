@@ -81,6 +81,7 @@ const addCategory = () =>{
         data: body,
         success: (res) => { loadCategories(res); }
     });
+    cleanCategory();
 }
 
 const addTask = () => {
@@ -104,6 +105,8 @@ const addTask = () => {
         data: body,
         success: (res) => { loadTasks(activeCategory); }
     });
+
+    cleanTask();
 }
 
 const toggleTask = (task) => {
@@ -118,4 +121,14 @@ const toggleTask = (task) => {
         data: JSON.stringify(task),
         success: (res) => { loadTasks(activeCategory); }
     });
+}
+
+const cleanTask = () => {
+    $("#new-task").val("");
+    $("#taskPri").val("LOW");
+}
+
+const cleanCategory = () => {
+    $("#new-category").val("");
+    $("#catColor").val("#000000");
 }
